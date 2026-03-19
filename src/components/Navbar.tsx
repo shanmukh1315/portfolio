@@ -2,65 +2,88 @@ import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
-import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
 import "./styles/Navbar.css";
 
-gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
-export let smoother: ScrollSmoother;
+gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
   useEffect(() => {
-    smoother = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 1.7,
-      speed: 1.7,
-      effects: true,
-      autoResize: true,
-      ignoreMobileResize: true,
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+      gsap.set(".character-model", { x: "0%", y: "0%" });
+      ScrollTrigger.refresh(true);
     });
 
-    smoother.scrollTop(0);
-    smoother.paused(true);
+    const links = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>(".header ul a")
+    );
 
-    let links = document.querySelectorAll(".header ul a");
-    links.forEach((elem) => {
-      let element = elem as HTMLAnchorElement;
-      element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
-          e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let section = elem.getAttribute("data-href");
-          smoother.scrollTo(section, true, "top top");
-        }
-      });
-    });
-    window.addEventListener("resize", () => {
-      ScrollSmoother.refresh(true);
-    });
+    const handleNavClick = (e: Event) => {
+      e.preventDefault();
+      const link = e.currentTarget as HTMLAnchorElement;
+      const section = link.getAttribute("data-href");
+      if (!section) return;
+
+      const target = document.querySelector(section);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+
+    links.forEach((link) => link.addEventListener("click", handleNavClick));
+
+    const onResize = () => {
+      ScrollTrigger.refresh(true);
+    };
+
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      links.forEach((link) =>
+        link.removeEventListener("click", handleNavClick)
+      );
+      window.removeEventListener("resize", onResize);
+    };
   }, []);
   return (
     <>
       <div className="header">
         <a href="/#" className="navbar-title" data-cursor="disable">
-          RC
-        </a>
-        <a
-          href="mailto:rajeshchittyal21@gmail.com"
-          className="navbar-connect"
-          data-cursor="disable"
-        >
-          rajeshchittyal21@gmail.com
+          SC
         </a>
         <ul>
+          <li>
+            <a data-href="#home" href="#home">
+              <HoverLinks text="HOME" />
+            </a>
+          </li>
           <li>
             <a data-href="#about" href="#about">
               <HoverLinks text="ABOUT" />
             </a>
           </li>
           <li>
+            <a data-href="#experience" href="#experience">
+              <HoverLinks text="EXPERIENCE" />
+            </a>
+          </li>
+          <li>
+            <a data-href="#education" href="#education">
+              <HoverLinks text="EDUCATION" />
+            </a>
+          </li>
+          <li>
             <a data-href="#work" href="#work">
-              <HoverLinks text="WORK" />
+              <HoverLinks text="PROJECTS" />
+            </a>
+          </li>
+          <li>
+            <a data-href="#skills" href="#skills">
+              <HoverLinks text="SKILLS" />
             </a>
           </li>
           <li>

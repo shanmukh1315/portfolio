@@ -8,9 +8,15 @@
 
 .work-section h2 {
   font-size: 70px;
-  font-weight: 500;
+  font-weight: 400;
   margin-top: 0;
   margin-bottom: 50px;
+  text-align: center;
+  background: linear-gradient(0deg, #0d9488, #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .work-section h2>span {
@@ -50,12 +56,14 @@
 .carousel-content {
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 20px;
   width: 100%;
 }
 
 .carousel-info {
   flex: 1;
+  width: 100%;
+  max-width: 980px;
   display: flex;
   gap: 30px;
   align-items: flex-start;
@@ -107,11 +115,13 @@
   font-size: 15px;
 }
 
-.carousel-image-wrapper {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.carousel-description {
+  font-weight: 300;
+  color: #d0cfd1;
+  margin: 18px 0 0;
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 620px;
 }
 
 /* ── Navigation Arrows ── */
@@ -273,14 +283,10 @@
 @media only screen and (max-width: 1025px) {
   .carousel-content {
     flex-direction: column;
-    gap: 30px;
+    gap: 10px;
   }
 
   .carousel-info {
-    width: 100%;
-  }
-
-  .carousel-image-wrapper {
     width: 100%;
   }
 

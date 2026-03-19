@@ -27,14 +27,17 @@ const setCharacter = (
           blobUrl,
           async (gltf) => {
             character = gltf.scene;
-            await renderer.compileAsync(character, camera, scene);
+
+            renderer.compileAsync(character, camera, scene).catch(() => {
+              // Ignore compile warm-up errors and continue with runtime rendering.
+            });
             character.traverse((child: any) => {
               if (child.isMesh) {
                 const mesh = child as THREE.Mesh;
 
                 // Change clothing colors to match site theme
                 if (mesh.material) {
-                  if (mesh.name === "BODY.SHIRT") { // The shirt mesh
+                  if (mesh.name === "BODY.SHIRT") {
                     const newMat = (mesh.material as THREE.Material).clone() as THREE.MeshStandardMaterial;
                     newMat.color = new THREE.Color("#8B4513");
                     mesh.material = newMat;
@@ -50,6 +53,7 @@ const setCharacter = (
                 mesh.frustumCulled = true;
               }
             });
+            URL.revokeObjectURL(blobUrl);
             resolve(gltf);
             setCharTimeline(character, camera);
             setAllTimeline();
@@ -62,6 +66,7 @@ const setCharacter = (
           },
           undefined,
           (error) => {
+            URL.revokeObjectURL(blobUrl);
             console.error("Error loading GLTF model:", error);
             reject(error);
           }

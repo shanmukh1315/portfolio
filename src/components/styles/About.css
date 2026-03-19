@@ -14,6 +14,8 @@
   padding-bottom: 0;
   width: 500px;
   max-width: calc(100% - 15px);
+  position: relative;
+  z-index: 12;
 }
 .about-me h3 {
   font-size: 25px;
@@ -24,11 +26,14 @@
 }
 
 .about-me p {
-  font-size: 33px;
-  font-weight: 600;
-  line-height: 36px;
-  letter-spacing: 1px;
+  font-family: inherit;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.2px;
+  color: #d8e1f2;
 }
+
 
 @media only screen and (min-width: 600px) {
   .about-section {
@@ -53,6 +58,8 @@
     height: var(--vh);
     padding: 0px;
     opacity: 1;
+    position: relative;
+    z-index: 12;
   }
   .about-me {
     padding: 0px;

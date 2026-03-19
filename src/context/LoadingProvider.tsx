@@ -24,7 +24,17 @@ export const LoadingProvider = ({ children }: PropsWithChildren) => {
     setIsLoading,
     setLoading,
   };
-  useEffect(() => {}, [loading]);
+
+  useEffect(() => {
+    // Prevent the overlay from blocking the app too long on slower networks/devices.
+    const maxLoaderTimeout = window.setTimeout(() => {
+      setIsLoading(false);
+    }, 2800);
+
+    return () => {
+      window.clearTimeout(maxLoaderTimeout);
+    };
+  }, []);
 
   return (
     <LoadingContext.Provider value={value as LoadingType}>

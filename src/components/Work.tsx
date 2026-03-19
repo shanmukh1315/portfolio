@@ -1,38 +1,28 @@
 import { useState, useCallback } from "react";
 import "./styles/Work.css";
-import WorkImage from "./WorkImage";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "Solid Starters",
-    category: "Low-Code Platform",
-    tools: "Angular, Next.js, NestJS, MongoDB",
-    image: "/images/Solidx.png",
+    title: "Full-Stack FastAPI Calculator",
+    category: "Full-Stack Web Application",
+    tools: "FastAPI, PostgreSQL, JWT, React, Alembic, Pytest, Playwright",
+    description:
+      "Built a JWT-authenticated web application with user-scoped CRUD workflows, analytics, and export features across CSV, JSON, and PDF. Added 194 automated tests across unit, integration, and end-to-end layers with about 96% coverage.",
   },
   {
-    title: "Radix",
-    category: "E-Commerce",
-    tools: "Angular, Next.js, NestJS, CMS",
-    image: "/images/radix.png",
+    title: "Full-Stack Banking Web App",
+    category: "Backend + Workflow Automation",
+    tools: "Flask, SQL",
+    description:
+      "Developed onboarding and transaction workflows with role-based admin access, audit-friendly history, validation, and workflow automation that reduced manual effort by 50%.",
   },
   {
-    title: "Bond Cancellation",
-    category: "Import-Export Automation",
-    tools: "Angular, Next.js, NestJS, Workflows",
-    image: "/images/bond.png",
-  },
-  {
-    title: "Sapphire",
-    category: "CRM Platform",
-    tools: "AngularJS, NestJS, PostgreSQL",
-    image: "/images/sapphire.png",
-  },
-  {
-    title: "Mpro",
-    category: "Insurance Platform",
-    tools: "React.js, Node.js, Microservices",
-    image: "/images/Maxlife.png",
+    title: "Medical Triage + RAG",
+    category: "AI / Retrieval-Augmented Application",
+    tools: "Python, RAG, Embeddings, Vector Search, FastAPI",
+    description:
+      "Built a citation-grounded medical Q&A assistant and improved grounded response quality by 15% across 50 evaluation questions by refining ingestion, retrieval, and reranking.",
   },
 ];
 
@@ -65,9 +55,7 @@ const Work = () => {
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container">
-        <h2>
-          My <span>Work</span>
-        </h2>
+        <h2>Projects</h2>
 
         <div className="carousel-wrapper">
           {/* Navigation Arrows */}
@@ -112,10 +100,10 @@ const Work = () => {
                           <span className="tools-label">Tools & Features</span>
                           <p>{project.tools}</p>
                         </div>
+                        <p className="carousel-description">
+                          {project.description}
+                        </p>
                       </div>
-                    </div>
-                    <div className="carousel-image-wrapper">
-                      <WorkImage image={project.image} alt={project.title} />
                     </div>
                   </div>
                 </div>

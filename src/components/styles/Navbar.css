@@ -1,8 +1,10 @@
 .header {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 20px;
+  align-items: center;
   max-width: var(--cMaxWidth);
   width: var(--cWidth);
-  justify-content: space-between;
   padding: 20px 0px;
   margin-bottom: -100px;
   box-sizing: border-box;
@@ -31,14 +33,21 @@
   cursor: pointer;
 }
 .navbar-connect {
-  position: absolute;
   display: none;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  justify-self: center;
   font-size: 15px;
   letter-spacing: 1px;
   font-weight: 500;
+  width: min(100%, 420px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.navbar-connect span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .navbar-title {
   font-weight: 700;
@@ -52,7 +61,9 @@
   .header ul {
     flex-direction: row;
     align-items: center;
-    font-size: 14px;
+    font-size: clamp(11px, 1vw, 14px);
+    column-gap: clamp(10px, 1.8vw, 22px);
+    justify-self: end;
   }
   .header ul li {
     color: #eae5ec;
@@ -61,7 +72,7 @@
     font-size: 16px;
   }
 }
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1280px) {
   .navbar-connect {
     display: block;
   }
@@ -69,10 +80,11 @@
 @media only screen and (min-width: 1200px) {
   .header {
     padding: 35px 0px;
+    column-gap: 28px;
   }
   .header ul {
-    column-gap: 80px;
-    font-size: 16px;
+    column-gap: clamp(14px, 1.5vw, 24px);
+    font-size: clamp(12px, 0.95vw, 15px);
   }
   .navbar-connect {
     font-size: 16px;

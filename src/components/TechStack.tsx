@@ -13,14 +13,21 @@ import {
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
-  "/images/react2.webp",
-  "/images/next2.webp",
-  "/images/node2.webp",
-  "/images/express.webp",
-  "/images/mongo.webp",
-  "/images/mysql.webp",
-  "/images/typescript.webp",
-  "/images/javascript.webp",
+  "/images/tech-python.webp",
+  "/images/tech-fastapi.webp",
+  "/images/tech-flask.webp",
+  "/images/tech-react.webp",
+  "/images/tech-nextjs.webp",
+  "/images/tech-postgresql.webp",
+  "/images/tech-docker.webp",
+  "/images/tech-aws.webp",
+  "/images/tech-azure.webp",
+  "/images/tech-github-actions.webp",
+  "/images/tech-jenkins.webp",
+  "/images/tech-tensorflow.webp",
+  "/images/tech-pytorch.webp",
+  "/images/tech-scikit-learn.webp",
+  "/images/tech-sql.webp",
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
@@ -167,8 +174,13 @@ const TechStack = () => {
   }, []);
 
   return (
-    <div className="techstack">
-      <h2> My Techstack</h2>
+    <div className="techstack" id="tech-stack">
+      <h2> Core Tech Stack</h2>
+      <p className="techstack-copy">
+        Python, FastAPI, Flask, React, Next.js, PostgreSQL, Docker, AWS,
+        Azure, GitHub Actions, Jenkins, TensorFlow, PyTorch, Scikit-learn,
+        and SQL.
+      </p>
 
       <Canvas
         shadows

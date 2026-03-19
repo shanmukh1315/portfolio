@@ -1,16 +1,17 @@
-# My Portfolio Wesbite - Overview 🚀
+# Shanmukha Portfolio
 
-This repository contains the open source version of my porfolio website.
-Do check it out!
+This repository contains the source for Shanmukha Srinivas Challa's portfolio website.
 
-## Instructions 🛠️
+## Stack
 
-I have modified the gsap club plugins with the trial plugins, but with the trial plugin you cannot host it🔴. So for Club plugins, Check out here: https://gsap.com/docs/v3/Installation/
+React, TypeScript, GSAP, Three.js, WebGL, HTML, and CSS.
 
-**Techstack** - React, TypeScript, GSAP, ThreeJS, WebGL, HTML, Css, JavaScript
+## Notes
 
-![Portfolio-Preview](public/images/preview.png)
+This project currently uses GSAP trial plugins for local development. For production hosting, replace those with licensed Club GSAP plugins if needed: https://gsap.com/docs/v3/Installation/
+
+![Portfolio Preview](public/images/preview.png)
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is available under the [MIT License](LICENSE).
