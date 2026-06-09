@@ -10,7 +10,7 @@ export const personal = {
   github: "https://github.com/shanmukh1315",
   linkedin: "https://www.linkedin.com/in/shanmukha-srinivas-challa-36483224a/",
   location: "Newark, NJ",
-  resumeUrl: "/Shanmukha_Challa_Resume.pdf",
+  resumeUrl: "/portfolio/Shanmukha_Challa_Resume.pdf",
   status: "Open to AI/ML, Data Science & Full-Stack roles",
 };
 

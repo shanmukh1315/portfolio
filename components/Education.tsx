@@ -47,7 +47,7 @@ export default function Education() {
     <section id="education" style={{ position: "relative", padding: "96px 0", background: "#080d1a", overflow: "hidden" }}>
       <Bg />
       <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.15 }} transition={{ duration: 0.5 }}
           style={{ marginBottom: 56 }}>
           <div style={{ fontSize: 12, color: "#00d4ff", fontWeight: 600, letterSpacing: 3, textTransform: "uppercase", marginBottom: 10 }}>05 — Education</div>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, color: "#e2e8f0", letterSpacing: -0.5 }}>Education</h2>
@@ -57,7 +57,7 @@ export default function Education() {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginBottom: 36 }} className="edu-grid">
           {edu.map((e, i) => (
             <motion.div key={e.degree}
-              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.15 }}
               whileHover={{ y: -8, boxShadow: `0 20px 48px rgba(0,0,0,0.4), 0 0 0 1px ${e.color}35` }}
               transition={{ duration: 0.5, delay: i * 0.1, type: "spring", stiffness: 300, damping: 20 }}
               style={{
@@ -97,7 +97,7 @@ export default function Education() {
         </div>
 
         {/* Certifications */}
-        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.15 }} transition={{ duration: 0.5 }}>
           <p style={{ fontSize: 11, color: "#334155", fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", marginBottom: 14 }}>Certifications</p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
             {[

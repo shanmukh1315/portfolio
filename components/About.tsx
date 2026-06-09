@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { personal } from "@/lib/data";
+import SectionBg from "@/components/SectionBg";
 
 const highlights = [
   { label: "MS Data Science", sub: "NJIT · GPA 3.8 · 2024–2026" },
@@ -9,30 +10,15 @@ const highlights = [
   { label: "Cloud & DevOps", sub: "AWS · Docker · CI/CD" },
 ];
 
-function Bg() {
-  return (
-    <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
-      <motion.div style={{
-        position: "absolute", width: 500, height: 500, borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(124,58,237,0.05) 0%, transparent 70%)",
-        top: "-10%", right: "0%",
-      }} animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }} />
-      <div style={{
-        position: "absolute", inset: 0,
-        backgroundImage: "linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)",
-        backgroundSize: "72px 72px",
-      }} />
-    </div>
-  );
-}
+
 
 export default function About() {
   return (
     <section id="about" style={{ position: "relative", padding: "96px 0", background: "#080d1a", overflow: "hidden" }}>
-      <Bg />
+      <SectionBg color1="#00d4ff" color2="#a78bfa" blob1={{ top: "-10%", right: "-5%" }} blob2={{ bottom: "-10%", left: "-5%" }} subtle />
       <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
         {/* Section label */}
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.15 }} transition={{ duration: 0.5 }}
           style={{ marginBottom: 56 }}>
           <div style={{ fontSize: 12, color: "#00d4ff", fontWeight: 600, letterSpacing: 3, textTransform: "uppercase", marginBottom: 10 }}>01 — About</div>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, color: "#e2e8f0", letterSpacing: -0.5, lineHeight: 1.15 }}>
@@ -43,7 +29,7 @@ export default function About() {
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "start" }} className="about-grid">
           {/* Left: text */}
-          <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, amount: 0.15 }} transition={{ duration: 0.6 }}>
             <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
               {[
                 "I'm a Full-Stack Software Engineer and recent MS Data Science graduate from NJIT (GPA 3.8). I have 4 years of hands-on experience building production-grade systems in Python, FastAPI, React, and cloud infrastructure.",
@@ -65,11 +51,11 @@ export default function About() {
           </motion.div>
 
           {/* Right: highlights */}
-          <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
+          <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, amount: 0.15 }} transition={{ duration: 0.6, delay: 0.1 }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
               {highlights.map((h, i) => (
                 <motion.div key={h.label}
-                  initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                  initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.15 }}
                   whileHover={{ y: -6, boxShadow: "0 16px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(0,212,255,0.2)" }}
                   transition={{ delay: i * 0.08, type: "spring", stiffness: 300, damping: 20 }}
                   style={{

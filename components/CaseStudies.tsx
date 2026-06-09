@@ -87,7 +87,7 @@ export default function CaseStudies() {
     <section id="case-studies" style={{ position: "relative", padding: "96px 0", background: "#080d1a", overflow: "hidden" }}>
       <Bg />
       <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.15 }} transition={{ duration: 0.5 }}
           style={{ marginBottom: 56 }}>
           <div style={{ fontSize: 12, color: "#00d4ff", fontWeight: 600, letterSpacing: 3, textTransform: "uppercase", marginBottom: 10 }}>Case Studies</div>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, color: "#e2e8f0", letterSpacing: -0.5 }}>
@@ -99,7 +99,7 @@ export default function CaseStudies() {
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           {cases.map((c, i) => (
             <motion.div key={c.title}
-              initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.15 }}
               whileHover={{ y: -5, boxShadow: `0 20px 52px rgba(0,0,0,0.45), 0 0 0 1px ${c.color}22` }}
               transition={{ duration: 0.5, delay: i * 0.06, type: "spring", stiffness: 300, damping: 20 }}
               style={{

@@ -46,7 +46,7 @@ export default function Contact() {
     <section id="contact" style={{ position: "relative", padding: "96px 0", background: "#0a0f1e", overflow: "hidden" }}>
       <Bg />
       <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.15 }} transition={{ duration: 0.5 }}
           style={{ marginBottom: 56 }}>
           <div style={{ fontSize: 12, color: "#00d4ff", fontWeight: 600, letterSpacing: 3, textTransform: "uppercase", marginBottom: 10 }}>06 — Contact</div>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, color: "#e2e8f0", letterSpacing: -0.5 }}>Get In Touch</h2>
@@ -55,7 +55,7 @@ export default function Contact() {
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "start" }} className="contact-grid">
           {/* Left: info */}
-          <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, amount: 0.15 }} transition={{ duration: 0.6 }}>
             <p style={{ fontSize: 15.5, color: "#64748b", lineHeight: 1.8, marginBottom: 36, maxWidth: 400 }}>
               I&apos;m actively looking for roles in AI/ML Engineering, Data Science, and Full-Stack Software Engineering. Open to full-time, contract, or collaborative projects. Let&apos;s build something together.
             </p>
@@ -113,7 +113,7 @@ export default function Contact() {
           </motion.div>
 
           {/* Right: form */}
-          <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
+          <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, amount: 0.15 }} transition={{ duration: 0.6, delay: 0.1 }}>
             <form onSubmit={submit} style={{
               padding: "36px 32px", borderRadius: 20,
               background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)",

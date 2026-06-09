@@ -208,14 +208,24 @@ function HeroBg() {
 
   return (
     <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
-      <canvas ref={canvasRef} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.55 }} />
-      {/* Deep glow blobs for colour depth */}
-      <motion.div style={{ position: "absolute", width: 700, height: 700, borderRadius: "50%", filter: "blur(110px)", top: "-20%", right: "-10%",
-        background: "radial-gradient(circle, rgba(0,212,255,0.07) 0%, transparent 70%)" }}
-        animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }} />
-      <motion.div style={{ position: "absolute", width: 600, height: 600, borderRadius: "50%", filter: "blur(100px)", bottom: "-15%", left: "-8%",
-        background: "radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 70%)" }}
-        animate={{ scale: [1, 1.08, 1] }} transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 3 }} />
+      {/* Aurora glow layer — sits behind canvas */}
+      {/* Cyan aurora — top right */}
+      <motion.div style={{ position: "absolute", width: 900, height: 700, borderRadius: "50%", filter: "blur(120px)", top: "-25%", right: "-15%",
+        background: "radial-gradient(ellipse, rgba(0,212,255,0.13) 0%, rgba(0,160,220,0.06) 45%, transparent 70%)" }}
+        animate={{ scale: [1, 1.12, 1], x: [0, 20, 0], y: [0, -15, 0] }}
+        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }} />
+      {/* Blue aurora — centre */}
+      <motion.div style={{ position: "absolute", width: 700, height: 700, borderRadius: "50%", filter: "blur(110px)", top: "10%", left: "25%",
+        background: "radial-gradient(circle, rgba(30,80,220,0.09) 0%, transparent 65%)" }}
+        animate={{ scale: [1, 1.08, 1], x: [0, -25, 0], y: [0, 20, 0] }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }} />
+      {/* Purple aurora — bottom left */}
+      <motion.div style={{ position: "absolute", width: 750, height: 650, borderRadius: "50%", filter: "blur(100px)", bottom: "-20%", left: "-10%",
+        background: "radial-gradient(ellipse, rgba(124,58,237,0.11) 0%, rgba(100,40,200,0.05) 50%, transparent 70%)" }}
+        animate={{ scale: [1, 1.1, 1], x: [0, 15, 0], y: [0, -10, 0] }}
+        transition={{ duration: 13, repeat: Infinity, ease: "easeInOut", delay: 4 }} />
+      {/* Neural network canvas — sits on top of aurora */}
+      <canvas ref={canvasRef} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.6 }} />
     </div>
   );
 }
