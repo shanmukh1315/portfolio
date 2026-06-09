@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Shanmukha Srinivas Challa — Portfolio
 
-## Getting Started
+> AI/ML Engineer · Data Scientist · Full-Stack Developer  
+> MS Data Science, NJIT (GPA 3.8) · 4 years of professional experience
 
-First, run the development server:
+**Live:** https://shanmukh1315.github.io/portfolio
+
+---
+
+![Portfolio Hero](docs/preview.png)
+
+---
+
+## About
+
+Personal portfolio showcasing AI/ML projects, full-stack engineering experience, and data science work. Features a neural-network canvas hero, globally animated aurora background, terminal typing animation, scroll-reveal cards, and cursor-follow glow effects throughout.
+
+---
+
+## Tech Stack
+
+| | |
+|---|---|
+| **Framework** | Next.js 16 (App Router, `output: "export"`) |
+| **Language** | TypeScript |
+| **Styling** | Tailwind CSS + inline styles |
+| **Animations** | Framer Motion v11 |
+| **Deployment** | GitHub Pages (`gh-pages` branch) |
+
+---
+
+## Features
+
+- **Neural network canvas** — animated nodes, edges, and pulses in the hero; reacts to mouse movement
+- **Global aurora background** — soft animated blobs and floating particles visible across all sections (no per-section grid)
+- **Cursor spotlight** — radial glow that follows the mouse globally
+- **Scroll reveal** — every section animates in on enter and out on exit (`whileInView`, `once: false`)
+- **GlowCard hover** — cursor-follow spotlight inside every project, skill, and contact card
+- **Terminal typing** — live typewriter animation showing skills and projects
+- **Resume download** — latest PDF served directly from `/public`
+- **Responsive** — single-column mobile layout via CSS grid overrides
+
+---
+
+## Sections
+
+| # | Section | Description |
+|---|---------|-------------|
+| 01 | About | Bio, highlight cards, availability status |
+| 02 | Experience | Timeline of roles at Virtusa and NJIT |
+| 03 | Education | NJIT MS + undergrad |
+| 04 | Projects | Filterable project cards with tech tags |
+| 05 | Case Studies | In-depth carousel for major projects |
+| 06 | Skills | 6 categories matching resume |
+| 07 | Contact | Form with GlowCard hover + mailto link |
+
+---
+
+## Local Development
 
 ```bash
+git clone https://github.com/shanmukh1315/portfolio.git
+cd portfolio
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Open http://localhost:3000/portfolio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy to GitHub Pages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build                        # generates /out
 
-## Learn More
+git checkout gh-pages
+git checkout main -- out/
+cp -r out/* .
+rm -rf out
+touch .nojekyll
+git add -A
+git commit -m "Deploy"
+git push origin gh-pages
+git checkout main
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+portfolio-site/
+├── app/
+│   ├── layout.tsx              # Root layout — mounts ClientWrapper
+│   ├── page.tsx                # All sections composed here
+│   └── globals.css
+├── components/
+│   ├── GlobalBackground.tsx    # Fixed aurora blobs + particles (z-0)
+│   ├── ClientWrapper.tsx       # Renders GlobalBackground + CursorSpotlight
+│   ├── CursorSpotlight.tsx     # Global cursor radial glow
+│   ├── GlowCard.tsx            # Mouse-follow spotlight wrapper
+│   ├── Hero.tsx                # Canvas + terminal + entry animations
+│   ├── Navbar.tsx
+│   ├── About.tsx
+│   ├── Experience.tsx
+│   ├── Education.tsx
+│   ├── Projects.tsx
+│   ├── CaseStudies.tsx
+│   ├── Skills.tsx
+│   ├── Contact.tsx
+│   └── Footer.tsx
+├── lib/
+│   └── data.ts                 # Personal info, resume URL, project data
+└── public/
+    └── Shanmukha_Challa_Resume.pdf
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| | |
+|---|---|
+| Email | shanmukhasrinivaschalla@gmail.com |
+| LinkedIn | https://linkedin.com/in/shanmukh1315 |
+| GitHub | https://github.com/shanmukh1315 |
+| Location | Newark, NJ |

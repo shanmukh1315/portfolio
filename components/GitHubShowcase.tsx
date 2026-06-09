@@ -28,7 +28,7 @@ export default function GitHubShowcase() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.15 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -44,7 +44,7 @@ export default function GitHubShowcase() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.15 }}
           transition={{ duration: 0.5 }}
           className="glass rounded-2xl p-6 mb-8 flex flex-col sm:flex-row items-center sm:items-start gap-5"
         >
@@ -85,7 +85,7 @@ export default function GitHubShowcase() {
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.15 }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
               className="glass rounded-xl p-4 flex flex-col gap-3 hover:scale-[1.02] transition-all group"
             >

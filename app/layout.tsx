@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import ClientWrapper from "@/components/ClientWrapper";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -22,7 +23,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} scroll-smooth`}>
-      <body className="bg-[#020817] text-slate-100 min-h-screen antialiased">{children}</body>
+      <body className="bg-[#020817] text-slate-100 min-h-screen antialiased">
+        <ClientWrapper>
+          {children}
+        </ClientWrapper>
+      </body>
     </html>
   );
 }

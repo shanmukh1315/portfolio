@@ -2,37 +2,65 @@
 import { motion } from "framer-motion";
 
 const categories = [
-  { title: "Data Science & ML", color: "#00d4ff", skills: ["Python", "pandas", "NumPy", "Scikit-learn", "LightGBM", "XGBoost", "PyTorch", "TensorFlow", "Matplotlib", "Seaborn", "Jupyter", "SQL"] },
-  { title: "AI / LLMs", color: "#a78bfa", skills: ["RAG", "LLM Agents", "NLP", "Transformers", "Embeddings", "Vector Search", "ChromaDB", "LangChain", "OpenAI API", "Prompt Engineering"] },
-  { title: "Backend & APIs", color: "#34d399", skills: ["FastAPI", "Flask", "Django", "Spring Boot", "Node.js", "ASP.NET Core", "REST APIs", "JWT", "WebSockets"] },
-  { title: "Databases & Data", color: "#f472b6", skills: ["PostgreSQL", "MongoDB", "MySQL", "Oracle", "MS SQL", "Redis", "Data Pipelines", "ETL", "ChromaDB"] },
-  { title: "Frontend", color: "#60a5fa", skills: ["React", "Next.js", "TypeScript", "Angular", "Tailwind CSS", "Framer Motion"] },
-  { title: "Cloud & Tools", color: "#fb923c", skills: ["AWS", "Azure", "GCP", "Docker", "Kubernetes", "GitHub Actions", "Jenkins", "Terraform", "CI/CD", "Git"] },
+  {
+    title: "Languages",
+    color: "#00d4ff",
+    skills: ["Python", "SQL", "Java", "JavaScript", "TypeScript", "C/C++", "C#", "HTML/CSS"],
+  },
+  {
+    title: "ML / AI & Data Science",
+    color: "#a78bfa",
+    skills: [
+      "Deep Learning", "NLP", "Transformers (BERT, GPT, CLIP)", "TensorFlow", "PyTorch",
+      "Scikit-learn", "LightGBM", "XGBoost", "RAG", "Embeddings", "LLM Agents",
+      "LangChain", "ChromaDB", "OpenAI API", "Prompt Engineering",
+      "pandas", "NumPy", "Matplotlib", "Seaborn", "Statistical Analysis", "Predictive Modeling",
+    ],
+  },
+  {
+    title: "Frameworks & Testing",
+    color: "#34d399",
+    skills: [
+      "FastAPI", "Flask", "Django", "Spring Boot", "Node.js / Express",
+      "ASP.NET Core", "Next.js", "Angular", "REST APIs", "JWT",
+      "Pytest", "JUnit",
+    ],
+  },
+  {
+    title: "Data Engineering & Databases",
+    color: "#f472b6",
+    skills: [
+      "PostgreSQL", "MySQL", "Oracle", "MS SQL", "MongoDB", "Redis",
+      "Kafka", "Apache Spark", "Airflow", "Pub/Sub",
+      "ETL", "Data Warehousing", "Data Pipelines",
+    ],
+  },
+  {
+    title: "Cloud & MLOps / DevOps",
+    color: "#fb923c",
+    skills: [
+      "AWS", "Azure", "GCP",
+      "Docker", "Kubernetes", "GitHub Actions", "Jenkins", "Azure DevOps",
+      "Terraform", "Ansible", "Tekton", "Packer", "CI/CD", "Git",
+    ],
+  },
+  {
+    title: "Frontend & Tools / BI",
+    color: "#60a5fa",
+    skills: [
+      "React", "Next.js", "TypeScript", "Angular", "Tailwind CSS",
+      "Power BI", "Tableau",
+      "Postman", "Splunk", "JIRA", "Git",
+    ],
+  },
 ];
 
-function Bg() {
-  return (
-    <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
-      <motion.div style={{
-        position: "absolute", width: 600, height: 600, borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(0,212,255,0.04) 0%, transparent 70%)",
-        bottom: "-10%", right: "-10%",
-      }} animate={{ scale: [1, 1.08, 1] }} transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }} />
-      <div style={{
-        position: "absolute", inset: 0,
-        backgroundImage: "radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)",
-        backgroundSize: "28px 28px",
-      }} />
-    </div>
-  );
-}
 
 export default function Skills() {
   return (
-    <section id="skills" style={{ position: "relative", padding: "96px 0", background: "#0a0f1e", overflow: "hidden" }}>
-      <Bg />
+    <section id="skills" style={{ position: "relative", padding: "96px 0", background: "transparent", overflow: "hidden" }}>
       <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.15 }} transition={{ duration: 0.5 }}
           style={{ marginBottom: 56 }}>
           <div style={{ fontSize: 12, color: "#00d4ff", fontWeight: 600, letterSpacing: 3, textTransform: "uppercase", marginBottom: 10 }}>04 — Skills</div>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, color: "#e2e8f0", letterSpacing: -0.5 }}>
@@ -44,7 +72,7 @@ export default function Skills() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 18 }} className="skills-grid">
           {categories.map((cat, i) => (
             <motion.div key={cat.title}
-              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.15 }}
               whileHover={{ y: -8, boxShadow: `0 20px 48px rgba(0,0,0,0.4), 0 0 0 1px ${cat.color}30` }}
               transition={{ duration: 0.45, delay: i * 0.07, type: "spring", stiffness: 300, damping: 20 }}
               style={{

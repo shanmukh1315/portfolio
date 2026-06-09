@@ -11,7 +11,8 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main>
+    /* z-10 lifts all content above the fixed GlobalBackground (z-0) */
+    <main style={{ position: "relative", zIndex: 1 }}>
       <Navbar />
       <Hero />
       <About />

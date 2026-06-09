@@ -4,23 +4,8 @@ import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, Send, CheckCircle } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { personal } from "@/lib/data";
+import GlowCard from "@/components/GlowCard";
 
-function Bg() {
-  return (
-    <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
-      <motion.div style={{
-        position: "absolute", width: 600, height: 600, borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(0,212,255,0.05) 0%, transparent 70%)",
-        top: "50%", left: "50%", transform: "translate(-50%,-50%)",
-      }} animate={{ scale: [1, 1.06, 1] }} transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }} />
-      <div style={{
-        position: "absolute", inset: 0,
-        backgroundImage: "linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px)",
-        backgroundSize: "72px 72px",
-      }} />
-    </div>
-  );
-}
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -43,10 +28,9 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" style={{ position: "relative", padding: "96px 0", background: "#0a0f1e", overflow: "hidden" }}>
-      <Bg />
+    <section id="contact" style={{ position: "relative", padding: "96px 0", background: "transparent", overflow: "hidden" }}>
       <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.15 }} transition={{ duration: 0.5 }}
           style={{ marginBottom: 56 }}>
           <div style={{ fontSize: 12, color: "#00d4ff", fontWeight: 600, letterSpacing: 3, textTransform: "uppercase", marginBottom: 10 }}>06 — Contact</div>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, color: "#e2e8f0", letterSpacing: -0.5 }}>Get In Touch</h2>
@@ -55,7 +39,7 @@ export default function Contact() {
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "start" }} className="contact-grid">
           {/* Left: info */}
-          <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, amount: 0.15 }} transition={{ duration: 0.6 }}>
             <p style={{ fontSize: 15.5, color: "#64748b", lineHeight: 1.8, marginBottom: 36, maxWidth: 400 }}>
               I&apos;m actively looking for roles in AI/ML Engineering, Data Science, and Full-Stack Software Engineering. Open to full-time, contract, or collaborative projects. Let&apos;s build something together.
             </p>
@@ -113,10 +97,14 @@ export default function Contact() {
           </motion.div>
 
           {/* Right: form */}
-          <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
+          <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, amount: 0.15 }} transition={{ duration: 0.6, delay: 0.1 }}>
+            <GlowCard
+              whileHover={{ y: -6, boxShadow: "0 20px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,212,255,0.18)" }}
+              transition={{ type: "spring", stiffness: 300, damping: 22 }}
+              style={{ borderRadius: 20, background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)" }}
+            >
             <form onSubmit={submit} style={{
-              padding: "36px 32px", borderRadius: 20,
-              background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)",
+              padding: "36px 32px",
               display: "flex", flexDirection: "column", gap: 20,
             }}>
               <div>
@@ -155,6 +143,7 @@ export default function Contact() {
                 {sent ? <><CheckCircle size={15} /> Email Client Opened</> : <><Send size={15} /> Send Message</>}
               </button>
             </form>
+            </GlowCard>
           </motion.div>
         </div>
       </div>

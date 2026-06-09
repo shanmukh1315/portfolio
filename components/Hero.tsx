@@ -208,14 +208,8 @@ function HeroBg() {
 
   return (
     <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
-      <canvas ref={canvasRef} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.55 }} />
-      {/* Deep glow blobs for colour depth */}
-      <motion.div style={{ position: "absolute", width: 700, height: 700, borderRadius: "50%", filter: "blur(110px)", top: "-20%", right: "-10%",
-        background: "radial-gradient(circle, rgba(0,212,255,0.07) 0%, transparent 70%)" }}
-        animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }} />
-      <motion.div style={{ position: "absolute", width: 600, height: 600, borderRadius: "50%", filter: "blur(100px)", bottom: "-15%", left: "-8%",
-        background: "radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 70%)" }}
-        animate={{ scale: [1, 1.08, 1] }} transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 3 }} />
+      {/* Neural network canvas — stronger effect for hero only */}
+      <canvas ref={canvasRef} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.65 }} />
     </div>
   );
 }
@@ -235,7 +229,7 @@ const metrics = [
 
 export default function Hero() {
   return (
-    <section id="hero" style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", background: "#0a0f1e", overflow: "hidden" }}>
+    <section id="hero" style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", background: "transparent", overflow: "hidden" }}>
       <HeroBg />
 
       <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "96px 32px 64px", width: "100%" }}>

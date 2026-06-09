@@ -82,22 +82,6 @@ const projects = [
   },
 ];
 
-function Bg() {
-  return (
-    <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
-      <motion.div style={{
-        position: "absolute", width: 700, height: 700, borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(124,58,237,0.05) 0%, transparent 70%)",
-        top: "-20%", right: "-15%",
-      }} animate={{ scale: [1, 1.08, 1], rotate: [0, 10, 0] }} transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }} />
-      <div style={{
-        position: "absolute", inset: 0,
-        backgroundImage: "linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px)",
-        backgroundSize: "72px 72px",
-      }} />
-    </div>
-  );
-}
 
 export default function Projects() {
   const [idx, setIdx] = useState(0);
@@ -107,11 +91,10 @@ export default function Projects() {
   const p = projects[idx];
 
   return (
-    <section id="projects" style={{ position: "relative", padding: "96px 0", background: "#080d1a", overflow: "hidden" }}>
-      <Bg />
+    <section id="projects" style={{ position: "relative", padding: "96px 0", background: "transparent", overflow: "hidden" }}>
       <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
         {/* Header */}
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.15 }} transition={{ duration: 0.5 }}
           style={{ marginBottom: 56, display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
           <div>
             <div style={{ fontSize: 12, color: "#00d4ff", fontWeight: 600, letterSpacing: 3, textTransform: "uppercase", marginBottom: 10 }}>03 — Projects</div>
