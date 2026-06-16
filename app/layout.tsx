@@ -8,15 +8,33 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export const metadata: Metadata = {
   title: "Shanmukha Srinivas Challa — AI/ML & Full-Stack Engineer",
   description:
-    "Portfolio of Shanmukha Srinivas Challa — MS Data Science (NJIT), building AI agents, RAG systems, and production-ready full-stack applications with Python, FastAPI, React, and LLMs.",
+    "Portfolio of Shanmukha Srinivas Challa — MS Data Science (NJIT, GPA 3.8), building AI agents, RAG systems, and production-ready full-stack applications with Python, FastAPI, React, and LLMs.",
   keywords: [
-    "Shanmukha Challa", "AI Engineer", "ML Engineer", "Data Science", "NJIT",
+    "Shanmukha Challa", "AI Engineer", "ML Engineer", "Data Scientist", "NJIT",
     "RAG", "LLM", "FastAPI", "React", "Python", "Full-Stack", "Portfolio",
+    "Machine Learning", "Data Science", "Newark NJ",
   ],
+  authors: [{ name: "Shanmukha Srinivas Challa" }],
   openGraph: {
     title: "Shanmukha Srinivas Challa — AI/ML & Full-Stack Engineer",
-    description: "Building intelligent agents, RAG systems, and production-ready AI products.",
+    description: "MS Data Science @ NJIT (GPA 3.8) · Building RAG systems, LLM agents, and production AI products with Python, FastAPI & React.",
+    url: "https://shanmukh1315.github.io/portfolio",
+    siteName: "Shanmukha Challa Portfolio",
     type: "website",
+    images: [
+      {
+        url: "https://shanmukh1315.github.io/portfolio/preview.png",
+        width: 1440,
+        height: 900,
+        alt: "Shanmukha Srinivas Challa — AI/ML Engineer Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shanmukha Srinivas Challa — AI/ML & Full-Stack Engineer",
+    description: "MS Data Science @ NJIT · RAG systems, LLM agents, FastAPI, React",
+    images: ["https://shanmukh1315.github.io/portfolio/preview.png"],
   },
 };
 
