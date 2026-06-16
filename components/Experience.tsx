@@ -30,11 +30,10 @@ const jobs = [
   },
 ];
 
-
-
 export default function Experience() {
   return (
-    <section id="experience" style={{ position: "relative", padding: "96px 0", background: "transparent", overflow: "hidden" }}>      <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
+    <section id="experience" style={{ position: "relative", padding: "96px 0", background: "transparent", overflow: "hidden" }}>
+      <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.15 }} transition={{ duration: 0.5 }}
           style={{ marginBottom: 56 }}>
           <div style={{ fontSize: 12, color: "#00d4ff", fontWeight: 600, letterSpacing: 3, textTransform: "uppercase", marginBottom: 10 }}>02 — Experience</div>
@@ -42,60 +41,93 @@ export default function Experience() {
           <div style={{ height: 3, width: 48, background: "linear-gradient(90deg, #00d4ff, #7c3aed)", borderRadius: 2, marginTop: 14 }} />
         </motion.div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-          {jobs.map((job, i) => (
-            <motion.div key={job.company}
-              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.15 }}
-              transition={{ duration: 0.55, delay: i * 0.1, type: "spring", stiffness: 250, damping: 22 }}
-              whileHover={{ y: -4, boxShadow: `0 16px 48px rgba(0,0,0,0.3), 0 0 0 1px ${job.color}20` }}
-              style={{ display: "grid", gridTemplateColumns: "240px 1fr", gap: 48, padding: "32px 24px", borderRadius: 16,
-                borderBottom: "1px solid rgba(255,255,255,0.05)", cursor: "default" }}
-              className="exp-row"
-            >
-              {/* Left col */}
-              <div style={{ paddingTop: 4 }}>
-                <div style={{
-                  display: "inline-flex", alignItems: "center", gap: 8, padding: "4px 12px", borderRadius: 100,
-                  background: `${job.color}10`, border: `1px solid ${job.color}25`, marginBottom: 12,
-                }}>
-                  <div style={{ width: 6, height: 6, borderRadius: "50%", background: job.color }} />
-                  <span style={{ fontSize: 11, color: job.color, fontWeight: 600, letterSpacing: 1 }}>INTERNSHIP</span>
-                </div>
-                <h3 style={{ fontSize: 17, fontWeight: 700, color: "#e2e8f0", marginBottom: 4, lineHeight: 1.3 }}>{job.company}</h3>
-                <p style={{ fontSize: 13.5, color: job.color, fontWeight: 500, marginBottom: 3 }}>{job.role}</p>
-                <p style={{ fontSize: 12.5, color: "#475569", marginBottom: 2 }}>{job.location}</p>
-                <p style={{ fontSize: 12, color: "#334155", fontFamily: "monospace" }}>{job.period}</p>
-              </div>
+        {/* Timeline container */}
+        <div style={{ position: "relative", paddingLeft: 32 }}>
+          {/* Vertical line */}
+          <motion.div
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: false, amount: 0.1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            style={{
+              position: "absolute", left: 7, top: 8, bottom: 8, width: 2,
+              background: "linear-gradient(180deg, #00d4ff, #7c3aed, rgba(124,58,237,0))",
+              borderRadius: 2, transformOrigin: "top",
+            }}
+          />
 
-              {/* Right col */}
-              <div>
-                <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px", display: "flex", flexDirection: "column", gap: 12 }}>
-                  {job.bullets.map((b, j) => (
-                    <li key={j} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-                      <span style={{ color: job.color, fontSize: 16, lineHeight: 1.5, flexShrink: 0 }}>▹</span>
-                      <span style={{ fontSize: 14.5, color: "#64748b", lineHeight: 1.7 }}>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                  {job.tech.map(t => (
-                    <span key={t} style={{
-                      padding: "4px 12px", borderRadius: 100, fontSize: 12, fontWeight: 500,
-                      background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#475569",
-                    }}>{t}</span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+          <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
+            {jobs.map((job, i) => (
+              <motion.div key={job.company}
+                initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, amount: 0.15 }}
+                transition={{ duration: 0.55, delay: i * 0.12, type: "spring", stiffness: 250, damping: 22 }}
+                style={{ position: "relative" }}
+              >
+                {/* Timeline dot */}
+                <div style={{
+                  position: "absolute", left: -29, top: 20,
+                  width: 16, height: 16, borderRadius: "50%",
+                  background: job.color, boxShadow: `0 0 0 4px rgba(10,15,30,1), 0 0 16px ${job.color}70`,
+                  zIndex: 1,
+                }} />
+
+                <motion.div
+                  whileHover={{ y: -4, boxShadow: `0 20px 56px rgba(0,0,0,0.35), 0 0 0 1px ${job.color}25` }}
+                  transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                  style={{
+                    padding: "32px", borderRadius: 18,
+                    background: "rgba(255,255,255,0.025)", border: `1px solid ${job.color}15`,
+                    cursor: "default", boxShadow: "0 0px 0px rgba(0,0,0,0)",
+                  }}
+                >
+                  {/* Header */}
+                  <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
+                    <div>
+                      <div style={{
+                        display: "inline-flex", alignItems: "center", gap: 7, padding: "3px 11px", borderRadius: 100,
+                        background: `${job.color}10`, border: `1px solid ${job.color}25`, marginBottom: 10,
+                      }}>
+                        <div style={{ width: 5, height: 5, borderRadius: "50%", background: job.color }} />
+                        <span style={{ fontSize: 11, color: job.color, fontWeight: 700, letterSpacing: 1.5 }}>INTERNSHIP</span>
+                      </div>
+                      <h3 style={{ fontSize: 20, fontWeight: 800, color: "#e2e8f0", marginBottom: 3 }}>{job.company}</h3>
+                      <p style={{ fontSize: 14, color: job.color, fontWeight: 600 }}>{job.role}</p>
+                    </div>
+                    <div style={{ textAlign: "right" }}>
+                      <div style={{ fontSize: 13, color: "#475569", marginBottom: 3 }}>{job.location}</div>
+                      <div style={{
+                        fontSize: 12, color: "#334155", fontFamily: "monospace",
+                        background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)",
+                        padding: "3px 10px", borderRadius: 6, display: "inline-block",
+                      }}>{job.period}</div>
+                    </div>
+                  </div>
+
+                  {/* Bullets */}
+                  <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px", display: "flex", flexDirection: "column", gap: 10 }}>
+                    {job.bullets.map((b, j) => (
+                      <li key={j} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                        <span style={{ color: job.color, fontSize: 14, lineHeight: 1.6, flexShrink: 0 }}>▹</span>
+                        <span style={{ fontSize: 14.5, color: "#64748b", lineHeight: 1.7 }}>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Tech tags */}
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                    {job.tech.map(t => (
+                      <span key={t} style={{
+                        padding: "4px 12px", borderRadius: 100, fontSize: 12, fontWeight: 500,
+                        background: `${job.color}08`, border: `1px solid ${job.color}20`, color: job.color,
+                      }}>{t}</span>
+                    ))}
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .exp-row { grid-template-columns: 1fr !important; gap: 16px !important; }
-        }
-      `}</style>
     </section>
   );
 }
