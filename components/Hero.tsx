@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { Download, ArrowRight } from "lucide-react";
+import { Download, ArrowRight, Sparkles } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { personal } from "@/lib/data";
+import BlurText from "@/components/BlurText";
 
 /* ─── Terminal ──────────────────────────────────────── */
 const lines = [
@@ -239,23 +240,45 @@ export default function Hero() {
           <div>
             {/* Status badge */}
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-              style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 14px", borderRadius: 100,
-                background: "rgba(0,212,255,0.07)", border: "1px solid rgba(0,212,255,0.18)",
-                fontSize: 12, color: "#94a3b8", marginBottom: 28, letterSpacing: 0.3 }}>
+              style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "7px 16px", borderRadius: 100,
+                background: "rgba(74,222,128,0.06)", border: "1px solid rgba(74,222,128,0.2)",
+                backdropFilter: "blur(10px)",
+                fontSize: 12, color: "#86efac", marginBottom: 32, letterSpacing: 0.3 }}>
               <span className="dot-glow" style={{ width: 7, height: 7, borderRadius: "50%", background: "#4ade80", flexShrink: 0 }} />
-              Open to Data Science, ML, AI, Analytics &amp; Software roles
+              <Sparkles size={12} style={{ opacity: 0.7 }} />
+              Open to Data Science · ML · AI · Analytics &amp; Software roles
             </motion.div>
 
             {/* Name + title */}
-            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.6 }}>
-              <h1 style={{ fontSize: "clamp(34px, 5vw, 60px)", fontWeight: 800, lineHeight: 1.1, marginBottom: 16, letterSpacing: -1 }}>
-                <span style={{ color: "#e2e8f0" }}>Hi, I&apos;m </span>
-                <span style={{ color: "#00d4ff" }}>Shanmukha</span>
+            <div style={{ marginBottom: 20 }}>
+              <h1 style={{ fontSize: "clamp(36px, 5.5vw, 68px)", fontWeight: 900, lineHeight: 1.08, marginBottom: 14, letterSpacing: -1.5 }}>
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.5 }}
+                  style={{ display: "block", color: "#cbd5e1" }}
+                >
+                  Hi, I&apos;m
+                </motion.span>
+                <BlurText
+                  text="Shanmukha"
+                  delay={300}
+                  stagger={90}
+                  wordStyle={{
+                    background: "linear-gradient(135deg, #00d4ff 0%, #7c3aed 50%, #00d4ff 100%)",
+                    backgroundSize: "200% auto",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                    animation: "shimmer 3s linear infinite",
+                    fontWeight: 900,
+                  }}
+                />
               </h1>
-              <p style={{ fontSize: "clamp(16px, 2.2vw, 22px)", fontWeight: 500, color: "#64748b", marginBottom: 24, letterSpacing: 0.2 }}>
-                Data Scientist &nbsp;|&nbsp; ML Engineer &nbsp;|&nbsp; AI Engineer
-              </p>
-            </motion.div>
+              <motion.p
+                initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.5 }}
+                style={{ fontSize: "clamp(15px, 2vw, 20px)", fontWeight: 500, color: "#475569", marginBottom: 24, letterSpacing: 0.5 }}>
+                Data Scientist &nbsp;·&nbsp; ML Engineer &nbsp;·&nbsp; AI Engineer
+              </motion.p>
+            </div>
 
             {/* Summary */}
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}
